@@ -7,7 +7,7 @@
 body {
     font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
     min-height: 100vh;
-    background: url('pictures/dessin-animé-en-noir-et-blanc-d-un-safari-avec-girafes-jeep-301538873.webp') center center fixed;
+    background: url('pictures/safari-background.webp') center center fixed;
     background-size: cover;
     position: relative;
     overflow-x: hidden;
