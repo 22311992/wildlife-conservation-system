@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildlife Guardian | Locations</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+      <div class="sidebar-header">
+    <img src="pictures/pngtree-world-wildlife-day-with-the-animal-label-png-image_5893073.jpg" alt="Wildlife Logo" class="logo-img" onclick="location.reload();" style="cursor: pointer;">
+    <h2>WildGuard</h2>
+    <p class="logo-sub">Conservation Hub</p>
+</div>   
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="animals.html" class="nav-item">
+                    <i class="fas fa-paw"></i>
+                    <span>Animals</span>
+                </a>
+                <a href="sightings.html" class="nav-item">
+                    <i class="fas fa-eye"></i>
+                    <span>Sightings</span>
+                </a>
+                <a href="locations.html" class="nav-item active">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Locations</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-card">
+                    <div class="user-avatar" id="userAvatar">👤</div>
+                    <div class="user-info-side">
+                        <div class="user-name" id="sidebarUserName">Loading...</div>
+                        <div class="user-role" id="sidebarUserRole">Role</div>
+                    </div>
+                    <button onclick="logout()" class="logout-icon-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search by location name or country...">
+                </div>
+                <div class="header-actions">
+                    <div class="date-display" id="currentDate"></div>
+                </div>
+            </header>
+            
+            <div class="content-area">
+                <div class="page-header">
+                    <div>
+                        <h1><i class="fas fa-map-marker-alt"></i> Conservation Locations</h1>
+                        <p>Manage protected areas and wildlife reserves worldwide</p>
+                    </div>
+                   <button id="addLocationBtn" class="btn-primary" style="display: none;">
+    <i class="fas fa-plus"></i> Add New Location
+</button>
+                </div>
+                
+                <div class="stats-row">
+                    <div class="info-box">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <strong>Total Locations:</strong>
+                        <span id="totalLocationsCount">0</span>
+                    </div>
+                    <div class="info-box">
+                        <i class="fas fa-globe-africa"></i>
+                        <strong>Countries:</strong>
+                        <span id="totalCountriesCount">0</span>
+                    </div>
+                    <div class="info-box">
+                        <i class="fas fa-tree"></i>
+                        <strong>Total Area:</strong>
+                        <span id="totalAreaCount">0</span>
+                        <span style="font-size:12px;">km²</span>
+                    </div>
+                </div>
+                
+                <div id="locationsContainer">
+                    <div class="loading-spinner">Loading locations...</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Modal for Add/Edit Location -->
+    <div id="locationModal" class="modal" style="display: none;">
+        <div class="modal-content modal-medium">
+            <div class="modal-header">
+                <h2 id="modalTitle"><i class="fas fa-plus-circle"></i> Add New Location</h2>
+                <button class="modal-close" onclick="closeLocationModal()">&times;</button>
+            </div>
+            <form id="locationForm">
+                <input type="hidden" id="locationId">
+                <div class="form-group">
+                    <label><i class="fas fa-map-pin"></i> Location Name *</label>
+                    <input type="text" id="locationName" placeholder="e.g., Toubkal National Park" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-globe"></i> Country *</label>
+                    <select id="locationCountry" required>
+                        <option value="">-- Select a country --</option>
+                        <option value="Morocco">🇲🇦 Morocco</option>
+                        <option value="Kenya">🇰🇪 Kenya</option>
+                        <option value="Tanzania">🇹🇿 Tanzania</option>
+                        <option value="South Africa">🇿🇦 South Africa</option>
+                        <option value="India">🇮🇳 India</option>
+                        <option value="Rwanda">🇷🇼 Rwanda</option>
+                        <option value="Uganda">🇺🇬 Uganda</option>
+                        <option value="China">🇨🇳 China</option>
+                        <option value="Brazil">🇧🇷 Brazil</option>
+                        <option value="Indonesia">🇮🇩 Indonesia</option>
+                        <option value="Australia">🇦🇺 Australia</option>
+                        <option value="Namibia">🇳🇦 Namibia</option>
+                        <option value="Botswana">🇧🇼 Botswana</option>
+                        <option value="Zambia">🇿🇲 Zambia</option>
+                        <option value="Zimbabwe">🇿🇼 Zimbabwe</option>
+                        <option value="Ethiopia">🇪🇹 Ethiopia</option>
+                        <option value="Egypt">🇪🇬 Egypt</option>
+                        <option value="Nepal">🇳🇵 Nepal</option>
+                        <option value="Thailand">🇹🇭 Thailand</option>
+                        <option value="Costa Rica">🇨🇷 Costa Rica</option>
+                        <option value="Madagascar">🇲🇬 Madagascar</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-location-dot"></i> Coordinates</label>
+                    <input type="text" id="locationCoordinates" placeholder="e.g., 31.5000° N, 7.5000° W">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-ruler-combined"></i> Area (km²) *</label>
+                    <input type="number" id="locationArea" placeholder="e.g., 380" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-paw"></i> Primary Species</label>
+                    <select id="locationPrimarySpecies">
+                        <option value="">-- Select a primary species --</option>
+                    </select>
+                    <small style="color: #666; font-size: 11px;">Choose the main animal species found here</small>
+                </div>
+                <div class="modal-buttons">
+                    <button type="submit" class="btn-save"><i class="fas fa-save"></i> Save Location</button>
+                    <button type="button" class="btn-cancel" onclick="closeLocationModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Modal for Location Details -->
+    <div id="detailModal" class="modal" style="display: none;">
+        <div class="modal-content modal-detail">
+            <div class="modal-header">
+                <h2 id="detailTitle">Location Details</h2>
+                <button class="modal-close" onclick="closeDetailModal()">&times;</button>
+            </div>
+            <div id="detailContent"></div>
+        </div>
+    </div>
+
+    <script src="mockData.js"></script>
+    <script src="locations.js"></script>
+</body>
+</html>

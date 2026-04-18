@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Wildlife Conservation Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="animated-bg-layer"></div>
+
+    <div class="login-container">
+        <div class="login-grid">
+            <div class="hero-panel">
+<img src="pictures/pngtree-world-wildlife-day-with-the-animal-label-png-image_5893073.jpg" alt="Wildlife Logo" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">      
+          <h1>Wildlife Conservation<br>Monitoring System</h1>
+                <p class="hero-desc">Real-time tracking of endangered species, habitat analytics, and global conservation intelligence.</p>
+                
+                <div class="impact-stats">
+                    <div class="stat-block">
+                        <div class="stat-number">1,280+</div>
+                        <div class="stat-label">protected species</div>
+                    </div>
+                    <div class="stat-block">
+                        <div class="stat-number">203</div>
+                        <div class="stat-label">active reserves</div>
+                    </div>
+                    <div class="stat-block">
+                        <div class="stat-number">52K</div>
+                        <div class="stat-label">sightings / month</div>
+                    </div>
+                </div>
+
+                <div class="quote-line">
+                    <span>“Protecting nature, preserving tomorrow”</span>
+                </div>
+            </div>
+
+            <div class="card-glass">
+                <div class="card-header">
+                    <div class="lock-icon">🔐</div>
+                    <h2>Access dashboard</h2>
+                    <p class="greeting">Sign in to monitor wildlife data</p>
+                </div>
+
+                <form id="loginForm" novalidate>
+                    <div class="input-field">
+                        <label>Email address</label>
+                        <div class="input-icon-wrapper">
+                            <span class="field-icon">📧</span>
+                            <input type="email" id="email" placeholder="name@wildlife.com" autocomplete="off">
+                        </div>
+                    </div>
+
+                    <div class="input-field">
+                        <label>Password</label>
+                        <div class="input-icon-wrapper">
+                            <span class="field-icon">🔒</span>
+                            <input type="password" id="password" placeholder="••••••••">
+                        </div>
+                    </div>
+
+                    <div id="errorMsg" class="error-alert"></div>
+
+                    <button type="submit" id="loginBtn" class="auth-btn">
+                        <span>→</span> Sign in to system <span>🌍</span>
+                    </button>
+                </form>
+
+                <div class="guest-section">
+                    <div class="guest-divider">━━━━  or  ━━━━</div>
+                    <button id="guestBtn" class="guest-btn">
+                        <span>👤</span> Continue as Guest <span>🔍</span>
+                    </button>
+                    <small class="guest-note">Guest mode: View only, no editing permissions</small>
+                </div>
+
+                <div class="demo-access">
+                    <div class="demo-divider">━━━━  demo credentials  ━━━━</div>
+                    <div class="credential-list">
+                     <div class="cred-row" data-email="adam@wildlife.com" data-pass="adam123">
+    <span class="role-badge admin">👑 Supervisor (Adam)</span>
+    <span class="cred-code">adam@wildlife.com / adam123</span>
+</div>
+<div class="cred-row" data-email="omar@wildlife.com" data-pass="omar123">
+    <span class="role-badge admin">👑 Supervisor (Omar)</span>
+    <span class="cred-code">omar@wildlife.com / omar123</span>
+</div>
+<div class="cred-row" data-email="majdouline@wildlife.com" data-pass="majdouline123">
+    <span class="role-badge researcher">🔬 Researcher (Majdouline)</span>
+    <span class="cred-code">majdouline@wildlife.com / majdouline123</span>
+</div>
+<div class="cred-row" data-email="hanae@wildlife.com" data-pass="hanae123">
+    <span class="role-badge researcher">🔬 Researcher (Hanae)</span>
+    <span class="cred-code">hanae@wildlife.com / hanae123</span>
+</div>
+<div class="cred-row" data-email="bachair@wildlife.com" data-pass="bachair123">
+    <span class="role-badge ranger">🛡️ Wildlife Guard (Bachair)</span>
+    <span class="cred-code">bachair@wildlife.com / bachair123</span>
+</div>
+<div class="cred-row" data-email="farid@wildlife.com" data-pass="farid123">
+    <span class="role-badge ranger">🛡️ Wildlife Guard (Farid)</span>
+    <span class="cred-code">farid@wildlife.com / farid123</span>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="mockData.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
