@@ -1,0 +1,10 @@
+CREATE INDEX idx_sightings_date     ON sightings (sighting_date);
+CREATE INDEX idx_sightings_animal   ON sightings (animal_id, sighting_date);
+CREATE INDEX idx_sightings_observer ON sightings (observer_id);
+CREATE INDEX idx_animals_status     ON animals   (status_id);
+CREATE INDEX idx_animals_name       ON animals   (common_name);
+CREATE INDEX idx_locations_country  ON locations (country_id);
+CREATE INDEX idx_users_email        ON users     (email);
+CREATE INDEX idx_audit_table        ON audit_log (table_name, performed_at);
+CREATE INDEX ft_sightings_notes     ON sightings USING GIN (to_tsvector('english', COALESCE(notes,'')));
+CREATE INDEX ft_animals_habitat     ON animals   USING GIN (to_tsvector('english', habitat_description));
